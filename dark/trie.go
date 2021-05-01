@@ -11,7 +11,7 @@ type node struct {
 	pattern  string  // 待匹配路由
 	part     string  // 路由中的部分内容
 	children []*node // 子节点，
-	isWild   bool    // 是否精准匹配
+	isWild   bool    // 是否精准匹配，提供两种路由参数的通配符 ： 和 *
 }
 
 // 第一个匹配成功的节点用于插入

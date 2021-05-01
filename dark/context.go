@@ -36,7 +36,7 @@ func (c *Context) Param(key string) string {
 	return value
 }
 
-func (c *Context) PostFrom(key string) string {
+func (c *Context) PostForm(key string) string {
 	return c.Req.FormValue(key)
 }
 
