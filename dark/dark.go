@@ -2,6 +2,7 @@ package dark
 
 import (
 	"net/http"
+	"strings"
 )
 
 // 路由分组
@@ -50,7 +51,15 @@ func (e *Engine) Run(addr string) (err error) {
 
 // ServeHTTP接口吗，所有的HTTP请求都会通过该函数进入处理
 func (e *Engine) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	var middlewares []HandleFunc
+	for _, group := range e.groups {
+		// 通过URL前缀判断属于哪一个路由分组的中间件
+		if strings.HasPrefix(r.URL.Path, group.prefix) {
+			middlewares = append(middlewares, group.middlewares...)
+		}
+	}
 	c := newContext(w, r)
+	c.handlers = middlewares
 	e.router.handle(c)
 }
 
@@ -81,4 +90,9 @@ func (g *RouterGroup) GET(pattern string, handler HandleFunc) {
 // POST 添加HTTP POST请求的路由
 func (g *RouterGroup) POST(pattern string, handler HandleFunc) {
 	g.addRoute("POST", pattern, handler)
+}
+
+// Use 向路由分组中添加中间件
+func (g *RouterGroup) Use(middlewares ...HandleFunc) {
+	g.middlewares = append(g.middlewares, middlewares...)
 }

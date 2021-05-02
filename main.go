@@ -2,9 +2,18 @@ package main
 
 import (
 	"github.com/VegetableManII/myHTTPEngine/dark"
+	"log"
 	"net/http"
+	"time"
 )
 
+func onlyForG2Middle() dark.HandleFunc {
+	return func(c *dark.Context) {
+		t := time.Now()
+		c.Fail(500, "Internal Server Error")
+		log.Printf("Middleware-onlyForG2Middle:[%d] %s in %v for RouterGroup2", c.StatusCode, c.Req.RequestURI, time.Since(t))
+	}
+}
 func main() {
 	r := dark.New()
 	// v0
@@ -32,8 +41,8 @@ func main() {
 		// 请求格式 /assets/index.html
 		context.JSON(http.StatusOK, dark.H{"file": context.Params["file"]})
 	})
-	// 增加路由分组
-	g1 := r.Group("g1")
+	// 增加路由分组 前缀的格式一定要带根目录 "/"
+	g1 := r.Group("/g1")
 	{
 		g1.GET("/", func(c *dark.Context) {
 			c.String(http.StatusOK, "This is RouterGroup1 & Path is %s\n", c.Path)
@@ -43,7 +52,7 @@ func main() {
 				c.Query("name"), c.Path)
 		})
 	}
-	g2 := r.Group("g2")
+	g2 := r.Group("/g2")
 	{
 		g2.GET("/hi/:name", func(c *dark.Context) {
 			c.String(http.StatusOK, "Hi，%s. This is RouterGroup2 & Path is %s\n\n",
@@ -57,5 +66,8 @@ func main() {
 			})
 		})
 	}
+	// 中间件
+	r.Use(dark.Logger())      // 全局中间件提供日志打印功能
+	g2.Use(onlyForG2Middle()) // 添加 g2 分组的中间件功能
 	r.Run(":9999")
 }
