@@ -1,7 +1,9 @@
 package dark
 
 import (
+	"html/template"
 	"net/http"
+	"path"
 	"strings"
 )
 
@@ -21,6 +23,10 @@ type Engine struct {
 	// 继承RouterGroup可以像使用RouterGroup一样使用Engine
 	router *router
 	groups []*RouterGroup
+	// 加载所有模板到内存
+	htmlTemplates *template.Template
+	// 所有自定模板渲染函数
+	funcMap template.FuncMap
 }
 
 // New 引擎的构造函数
@@ -49,6 +55,16 @@ func (e *Engine) Run(addr string) (err error) {
 	return http.ListenAndServe(addr, e)
 }
 
+// SetFuncMap 设置自定义模板渲染函数
+func (e *Engine) SetFuncMap(funcMap template.FuncMap) {
+	e.funcMap = funcMap
+}
+
+// LoadHTMLGlob 加载模板
+func (e *Engine) LoadHTMLGlob(pattern string) {
+	e.htmlTemplates = template.Must(template.New("").Funcs(e.funcMap).ParseGlob(pattern))
+}
+
 // ServeHTTP接口吗，所有的HTTP请求都会通过该函数进入处理
 func (e *Engine) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	var middlewares []HandleFunc
@@ -60,6 +76,7 @@ func (e *Engine) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	}
 	c := newContext(w, r)
 	c.handlers = middlewares
+	c.engin = e
 	e.router.handle(c)
 }
 
@@ -95,4 +112,24 @@ func (g *RouterGroup) POST(pattern string, handler HandleFunc) {
 // Use 向路由分组中添加中间件
 func (g *RouterGroup) Use(middlewares ...HandleFunc) {
 	g.middlewares = append(g.middlewares, middlewares...)
+}
+
+// 创建处理静态请求的Handler
+func (g *RouterGroup) createStaticHandler(relativePath string, fs http.FileSystem) HandleFunc {
+	absolutePath := path.Join(g.prefix, relativePath)
+	fileServer := http.StripPrefix(absolutePath, http.FileServer(fs))
+	return func(c *Context) {
+		file := c.Param("file")
+		if _, err := fs.Open(file); err != nil {
+			c.Status(http.StatusNotFound)
+			return
+		}
+		fileServer.ServeHTTP(c.Writer, c.Req)
+	}
+}
+func (g *RouterGroup) Static(relativePath string, root string) {
+	handler := g.createStaticHandler(relativePath, http.Dir(root))
+	urlPattern := path.Join(relativePath, "/*file")
+	// 注册 GET 方法
+	g.GET(urlPattern, handler)
 }

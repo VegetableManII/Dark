@@ -1,0 +1,10 @@
+<!-- templates/arr.tmpl -->
+<html>
+<body>
+<link rel="stylesheet" href="/assets/sayhello.css" />
+<p>Hello, Welcome to Dark Frame</p>
+{{range $index, $ele := .stuArr }}
+<p>{{ $index }}: {{ $ele.Name }} is {{ $ele.Age }} years old</p>
+{{ end }}
+</body>
+</html>
