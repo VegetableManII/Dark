@@ -1,4 +1,4 @@
-module github.com/VegetableManII/myHTTPEngine
+module github.com/VegetableManII/DarkWebFrame
 
 go 1.15
 
