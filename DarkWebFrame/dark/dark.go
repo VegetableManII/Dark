@@ -10,7 +10,7 @@ import (
 // 路由分组
 type RouterGroup struct {
 	prefix      string
-	middlewares []HandleFunc //支持中间件
+	middlewares []HandleFunc //支持中间件,不同前缀分组可使用不同的中间件
 	engine      *Engine      // 所有分组共享一个engin实例
 }
 
@@ -65,7 +65,7 @@ func (e *Engine) LoadHTMLGlob(pattern string) {
 	e.htmlTemplates = template.Must(template.New("").Funcs(e.funcMap).ParseGlob(pattern))
 }
 
-// ServeHTTP接口吗，所有的HTTP请求都会通过该函数进入处理
+// ServeHTTP接口，所有的HTTP请求都会通过该函数进入处理
 func (e *Engine) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	var middlewares []HandleFunc
 	for _, group := range e.groups {
@@ -127,6 +127,8 @@ func (g *RouterGroup) createStaticHandler(relativePath string, fs http.FileSyste
 		fileServer.ServeHTTP(c.Writer, c.Req)
 	}
 }
+
+// 处理静态资源
 func (g *RouterGroup) Static(relativePath string, root string) {
 	handler := g.createStaticHandler(relativePath, http.Dir(root))
 	urlPattern := path.Join(relativePath, "/*file")

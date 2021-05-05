@@ -10,12 +10,12 @@ type H map[string]interface{}
 
 // Context 定义了一次HTTP请求的必要内容
 type Context struct {
+	// 请求信息
 	Writer http.ResponseWriter
 	Req    *http.Request
-	// 请求信息
-	Path   string
-	Method string
 	// 响应信息
+	Path       string
+	Method     string
 	StatusCode int
 	// 路由参数
 	Params map[string]string

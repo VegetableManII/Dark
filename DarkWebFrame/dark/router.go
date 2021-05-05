@@ -8,8 +8,7 @@ import (
 
 // 路由
 type router struct {
-	roots map[string]*node
-	// eg. roots['GET'] roots[POST]
+	roots    map[string]*node
 	handlers map[string]HandleFunc
 	// eg. handlers['GET-/p/:lang/doc'] handlers['POST-/p/book']
 }
@@ -90,7 +89,7 @@ func (r *router) getRoute(method string, path string) (*node, map[string]string)
 			if part[0] == ':' {
 				params[part[1:]] = searchParts[index]
 			}
-			if part[0] == '*' && len(part) > 1 {
+			if part[0] == '*' {
 				params[part[1:]] = strings.Join(searchParts[index:], "/")
 				break
 			}

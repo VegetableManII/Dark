@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/VegetableManII/myHTTPEngine/dark"
+	"github.com/VegetableManII/DarkWebFrame/dark"
 	"html/template"
 	"log"
 	"net/http"
@@ -56,32 +56,30 @@ func main() {
 		})
 	*/
 	// 增加路由分组 前缀的格式一定要带根目录 "/"
-	/*
-		g1 := r.Group("/g1")
-		{
-			g1.GET("/", func(c *dark.Context) {
-				c.String(http.StatusOK, "This is RouterGroup1 & Path is %s\n", c.Path)
+	g1 := r.Group("/g1")
+	{
+		g1.GET("/", func(c *dark.Context) {
+			c.String(http.StatusOK, "This is RouterGroup1 & Path is %s\n", c.Path)
+		})
+		g1.GET("/hello", func(c *dark.Context) {
+			c.String(http.StatusOK, "Hello, %s. This is RouterGroup1 & Path is %s\n\n",
+				c.Query("name"), c.Path)
+		})
+	}
+	g2 := r.Group("/g2")
+	{
+		g2.GET("/hi/:name", func(c *dark.Context) {
+			c.String(http.StatusOK, "Hi，%s. This is RouterGroup2 & Path is %s\n\n",
+				c.Param("name"), c.Path)
+		})
+		g2.POST("/login", func(c *dark.Context) {
+			c.JSON(http.StatusOK, dark.H{
+				"username": c.PostForm("username"),
+				"password": c.PostForm("password"),
+				"path":     c.Path,
 			})
-			g1.GET("/hello", func(c *dark.Context) {
-				c.String(http.StatusOK, "Hello, %s. This is RouterGroup1 & Path is %s\n\n",
-					c.Query("name"), c.Path)
-			})
-		}
-		g2 := r.Group("/g2")
-		{
-			g2.GET("/hi/:name", func(c *dark.Context) {
-				c.String(http.StatusOK, "Hi，%s. This is RouterGroup2 & Path is %s\n\n",
-					c.Param("name"), c.Path)
-			})
-			g2.POST("/login", func(c *dark.Context) {
-				c.JSON(http.StatusOK, dark.H{
-					"username": c.PostForm("username"),
-					"password": c.PostForm("password"),
-					"path":     c.Path,
-				})
-			})
-		}
-	*/
+		})
+	}
 	// 中间件
 	r.Use(dark.Logger()) // 全局中间件提供日志打印功能
 	// g2.Use(onlyForG2Middle()) // 添加 g2 分组的中间件功能
