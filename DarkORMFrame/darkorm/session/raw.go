@@ -4,6 +4,7 @@ package session
 数据库交互
 */
 import (
+	"darkorm/clause"
 	"darkorm/dialect"
 	"darkorm/log"
 	"darkorm/schema"
@@ -13,8 +14,9 @@ import (
 
 type Session struct {
 	db       *sql.DB
-	dialect  dialect.Dialect // 数据库数据类型解析方式
+	dialect  dialect.Dialect // 数据库数据方言，根据不同数据库有不同的实现
 	refTable *schema.Schema  // 数据库表和结构体对象之间的转换
+	clause   clause.Clause
 	sql      strings.Builder
 	sqlVars  []interface{}
 }
@@ -30,6 +32,7 @@ func New(db *sql.DB, dialect dialect.Dialect) *Session {
 func (s *Session) Clear() {
 	s.sql.Reset()
 	s.sqlVars = nil
+	s.clause = clause.Clause{}
 }
 
 func (s *Session) DB() *sql.DB {

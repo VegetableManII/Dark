@@ -12,8 +12,9 @@ import (
 
 type mysql struct{}
 
+// 尝试将一个nil指针进行强制类型转换
 // 用来检验mysql是否实现了Dialect的接口
-// 如果没有实现该语句错误
+// 如果没有实现该语句编译错误
 var _ Dialect = (*mysql)(nil)
 
 func init() {

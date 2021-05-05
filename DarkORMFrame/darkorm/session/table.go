@@ -26,8 +26,6 @@ func (s *Session) RefTable() *schema.Schema {
 	return s.refTable
 }
 
-// 表的CURD操作
-
 func (s *Session) CreateTable() error {
 	table := s.RefTable()
 	var columns []string
