@@ -8,7 +8,8 @@ import (
 
 // 路由
 type router struct {
-	roots    map[string]*node
+	roots map[string]*node
+	// eg. handlers['GET'] handlers['POST']
 	handlers map[string]HandleFunc
 	// eg. handlers['GET-/p/:lang/doc'] handlers['POST-/p/book']
 }

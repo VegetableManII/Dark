@@ -10,7 +10,7 @@
 - 支持模板
 - 错误恢复
 
-### 功能组件和目录结构
+#### 功能组件和目录结构
 
 - **engine**：定义框架中的一些数据结构，如`Engine`，`HandleFunc`，`RouterGroup`等。
 
@@ -85,7 +85,7 @@
      roots map[string]*node
      // node 为前缀树上的某个节点 
      handlers map[string]HandleFunc
-     // 保存中间件方法，便于给context赋值
+    // 保存中间件方法，便于给context赋值,查找是通过完整路由(方法-路径)作为键来实现
   }
   ```
 
@@ -143,6 +143,19 @@
     - 进行层次查询遍历每一层的所有孩子节点然后挨个从孩子节点中查询目标，找不到返回nil
   - **matchChild**：匹配某个节点，条件：part字段相等或不进行精准匹配 `isWild`字段为true
   - **matchChildren**：匹配某个节点的所有孩子，条件同上
+
+#### Q：
+
+```
+// 前缀树的判断终止条件，在router中getRoute时对通配符之后的操作都进行的自动赋值
+// 这里只需要查找到第一次出现通配符的位置即可
+if len(parts) == height || strings.HasPrefix(n.part, "*") || strings.HasPrefix(n.part, ":") {
+   if n.pattern == "" {
+      return nil
+   }
+   return n
+}
+```
 
 ## DarkORM框架
 

@@ -55,7 +55,6 @@ func (n *node) insert(pattern string, parts []string, height int) {
 
 // 递归终止条件，parts所有匹配都已匹配完成或者当前节点的part为通用匹配 "*"
 func (n *node) search(parts []string, height int) *node {
-	// ？？？
 	if len(parts) == height || strings.HasPrefix(n.part, "*") || strings.HasPrefix(n.part, ":") {
 		if n.pattern == "" {
 			return nil
