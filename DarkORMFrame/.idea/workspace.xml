@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bca9fb77-4504-4253-9825-15002ac4360f" name="默认更改列表" comment="" />
+    <list default="true" id="bca9fb77-4504-4253-9825-15002ac4360f" name="默认更改列表" comment="">
+      <change afterPath="$PROJECT_DIR$/../DarkCache/darkcache/lru/lru.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/darkorm/clause/clause.go" beforeDir="false" afterPath="$PROJECT_DIR$/darkorm/clause/clause.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/darkorm/session/record.go" beforeDir="false" afterPath="$PROJECT_DIR$/darkorm/session/record.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkWebFrame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../DarkWebFrame/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,32 +20,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/darkorm/session/record.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="146">
-              <caret line="43" column="12" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="12" />
-              <folding>
-                <element signature="e#17#60#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/darkorm/session/record_test.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="21" column="19" lean-forward="true" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
-              <folding>
-                <element signature="e#17#73#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/darkorm/session/raw.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="49" column="20" lean-forward="true" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
+            <state relative-caret-position="154">
+              <caret line="25" column="88" selection-start-line="25" selection-start-column="88" selection-end-line="25" selection-end-column="88" />
             </state>
           </provider>
         </entry>
@@ -51,6 +34,12 @@
         <option value="Go File" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Find</find>
+      <find>Prase</find>
+    </findStrings>
   </component>
   <component name="GOROOT" path="/usr/local/go" />
   <component name="Git.Settings">
@@ -71,9 +60,9 @@
         <option value="$PROJECT_DIR$/darkorm/session/record_test.go" />
         <option value="$PROJECT_DIR$/darkorm/clause/clause_test.go" />
         <option value="$PROJECT_DIR$/darkorm/dialect/mysql.go" />
-        <option value="$PROJECT_DIR$/darkorm/session/table.go" />
         <option value="$PROJECT_DIR$/darkorm/clause/generator.go" />
         <option value="$PROJECT_DIR$/darkorm/clause/clause.go" />
+        <option value="$PROJECT_DIR$/darkorm/session/table.go" />
         <option value="$PROJECT_DIR$/darkorm/session/record.go" />
       </list>
     </option>
@@ -85,8 +74,8 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="69" />
-    <option name="y" value="25" />
+    <option name="x" value="86" />
+    <option name="y" value="23" />
     <option name="width" value="1567" />
     <option name="height" value="814" />
   </component>
@@ -119,36 +108,17 @@
               <item name="DarkORMFrame" type="b2602c69:ProjectViewProjectNode" />
               <item name="DarkORMFrame" type="462c0819:PsiDirectoryNode" />
               <item name="darkorm" type="462c0819:PsiDirectoryNode" />
-              <item name="session" type="462c0819:PsiDirectoryNode" />
+              <item name="schema" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DarkORMFrame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="外部库" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-            <path>
-              <item name="DarkORMFrame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="外部库" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Go Modules &lt;github.com/VegetableManII/DarkORMFrame&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
-            </path>
-            <path>
-              <item name="DarkORMFrame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="外部库" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Go Modules &lt;github.com/VegetableManII/DarkORMFrame&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
-              <item name="darkorm" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DarkORMFrame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="外部库" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Go Modules &lt;github.com/VegetableManII/DarkORMFrame&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
-              <item name="darkorm" type="462c0819:PsiDirectoryNode" />
-              <item name="clause" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DarkORMFrame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="外部库" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Go Modules &lt;github.com/VegetableManII/DarkORMFrame&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
+              <item name="DarkORMFrame" type="462c0819:PsiDirectoryNode" />
               <item name="darkorm" type="462c0819:PsiDirectoryNode" />
               <item name="session" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DarkORMFrame" type="b2602c69:ProjectViewProjectNode" />
+              <item name="外部库" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
@@ -166,7 +136,7 @@
     <property name="configurable.Project.GOPATH.is.expanded" value="true" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
     <property name="go.import.settings.migrated" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="go.vgo" />
@@ -183,7 +153,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Go Test.TestClause_Build in darkorm/clause">
+  <component name="RunManager" selected="Go Test.TestSession_Find in darkorm/session">
     <configuration name="TestClause_Build in darkorm/clause" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="DarkORMFrame" />
       <working_directory value="$PROJECT_DIR$/darkorm/clause" />
@@ -241,65 +211,66 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestSession_Find in darkorm/session" />
         <item itemvalue="Go Test.TestClause_Build in darkorm/clause" />
         <item itemvalue="Go Test.TestSession_Insert in darkorm/session" />
-        <item itemvalue="Go Test.TestSession_Find in darkorm/session" />
         <item itemvalue="Go Test.TestClause_Build/select in darkorm/clause" />
         <item itemvalue="Go Test.TestSession_CreateTable in darkorm/session" />
       </list>
     </recent_temporary>
   </component>
   <component name="TestHistory">
-    <history-entry file="TestClause_Build_in_darkorm_clause - 2021.05.05 at 15h 31m 58s.xml">
-      <configuration name="TestClause_Build in darkorm/clause" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="TestClause_Build_in_darkorm_clause - 2021.05.05 at 15h 37m 19s.xml">
-      <configuration name="TestClause_Build in darkorm/clause" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="TestClause_Build_in_darkorm_clause - 2021.05.05 at 15h 38m 17s.xml">
-      <configuration name="TestClause_Build in darkorm/clause" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="TestSession_Insert_in_darkorm_session - 2021.05.05 at 15h 38m 35s.xml">
-      <configuration name="TestSession_Insert in darkorm/session" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="TestClause_Build_in_darkorm_clause - 2021.05.05 at 15h 42m 13s.xml">
-      <configuration name="TestClause_Build in darkorm/clause" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="TestClause_Build_in_darkorm_clause - 2021.05.05 at 15h 43m 54s.xml">
-      <configuration name="TestClause_Build in darkorm/clause" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="TestClause_Build_in_darkorm_clause - 2021.05.05 at 15h 44m 15s.xml">
-      <configuration name="TestClause_Build in darkorm/clause" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="TestSession_Find_in_darkorm_session - 2021.05.05 at 15h 44m 22s.xml">
+    <history-entry file="TestSession_Find_in_darkorm_session - 2021.05.05 at 21h 33m 35s.xml">
       <configuration name="TestSession_Find in darkorm/session" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestSession_Insert_in_darkorm_session - 2021.05.05 at 15h 44m 59s.xml">
-      <configuration name="TestSession_Insert in darkorm/session" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestSession_Find_in_darkorm_session - 2021.05.05 at 21h 37m 44s.xml">
+      <configuration name="TestSession_Find in darkorm/session" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestClause_Build_in_darkorm_clause - 2021.05.05 at 16h 44m 57s.xml">
-      <configuration name="TestClause_Build in darkorm/clause" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestSession_Find_in_darkorm_session - 2021.05.05 at 22h 25m 28s.xml">
+      <configuration name="TestSession_Find in darkorm/session" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestSession_Find_in_darkorm_session - 2021.05.05 at 22h 27m 30s.xml">
+      <configuration name="TestSession_Find in darkorm/session" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestSession_Find_in_darkorm_session - 2021.05.05 at 22h 30m 02s.xml">
+      <configuration name="TestSession_Find in darkorm/session" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestSession_Find_in_darkorm_session - 2021.05.05 at 22h 32m 29s.xml">
+      <configuration name="TestSession_Find in darkorm/session" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestSession_Find_in_darkorm_session - 2021.05.05 at 22h 33m 39s.xml">
+      <configuration name="TestSession_Find in darkorm/session" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestSession_Find_in_darkorm_session - 2021.05.05 at 22h 48m 18s.xml">
+      <configuration name="TestSession_Find in darkorm/session" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestSession_Find_in_darkorm_session - 2021.05.05 at 22h 48m 33s.xml">
+      <configuration name="TestSession_Find in darkorm/session" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestSession_Find_in_darkorm_session - 2021.05.05 at 22h 48m 51s.xml">
+      <configuration name="TestSession_Find in darkorm/session" configurationId="GoTestRunConfiguration" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="69" y="25" width="1567" height="814" extended-state="0" />
+    <frame x="86" y="23" width="1567" height="814" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15540984" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16131148" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49935815" weight="0.25484765" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49935815" weight="0.43074793" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="8" visible="true" weight="0.32963988" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32963988" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32963988" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5006418" side_tool="true" weight="0.3227147" />
-      <window_info anchor="bottom" id="调试" order="12" weight="0.1731302" />
+      <window_info anchor="bottom" id="调试" order="12" weight="0.33240998" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -324,23 +295,34 @@
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/darkorm/schema/schema_test.go</url>
           <line>16</line>
-          <properties />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/darkorm/session/table_test.go</url>
           <line>24</line>
-          <properties />
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/darkorm/session/record_test.go</url>
-          <line>21</line>
-          <properties />
-          <option name="timeStamp" value="14" />
+          <line>39</line>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="GoTestRunConfiguration">
+        <watch expression="destType" language="go" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="watch">
+      <expression>
+        <expression-string>destType</expression-string>
+        <language-id>go</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/../DarkWebFrame/go.mod">
@@ -401,13 +383,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/local/go/src/reflect/value.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="2355" column="17" selection-start-line="2355" selection-start-column="17" selection-end-line="2355" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/go/src/builtin/builtin.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-112">
@@ -415,48 +390,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/local/go/src/testing/testing.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="535">
-          <caret line="1114" selection-start-line="1114" selection-end-line="1114" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/go/src/log/log.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="139">
           <caret line="64" column="5" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/darkorm/schema/schema_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
-          <folding>
-            <element signature="e#16#56#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/local/go/src/reflect/type.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="1094" lean-forward="true" selection-start-line="1094" selection-end-line="1094" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/darkorm/dialect/mysql.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/darkorm/dialect/dialect.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="18" column="9" lean-forward="true" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -491,65 +428,117 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/darkorm/session/table.go">
+    <entry file="file://$PROJECT_DIR$/darkorm/session/raw.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-307">
-          <caret line="22" column="8" lean-forward="true" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
+        <state relative-caret-position="181">
+          <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/darkorm/clause/generator.go">
+    <entry file="file:///usr/local/go/src/runtime/asm_amd64.s">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="61" column="2" lean-forward="true" selection-start-line="61" selection-start-column="2" selection-end-line="61" selection-end-column="2" />
+        <state relative-caret-position="112">
+          <caret line="1374" selection-start-line="1374" selection-end-line="1374" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/go/src/reflect/type.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="148" column="4" selection-start-line="148" selection-start-column="4" selection-end-line="148" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/darkorm/schema/schema.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-96">
+          <caret line="49" column="35" selection-start-line="49" selection-start-column="35" selection-end-line="49" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/darkorm/schema/schema_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+          <folding>
+            <element signature="e#16#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/darkorm/dialect/mysql.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-65">
+          <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/darkorm/dialect/dialect.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/darkorm/clause/clause.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="44" column="33" selection-start-line="44" selection-start-column="33" selection-end-line="44" selection-end-column="33" />
+        <state relative-caret-position="562">
+          <caret line="48" column="20" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/darkorm/clause/generator.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="61" column="1" selection-start-line="61" selection-start-column="1" selection-end-line="61" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/go/src/database/sql/sql.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="3111" column="13" selection-start-line="3111" selection-start-column="13" selection-end-line="3111" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/darkorm/session/table.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="e#17#89#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/darkorm/session/record_test.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="21" column="19" lean-forward="true" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
+        <state relative-caret-position="192">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
           <folding>
             <element signature="e#17#73#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/darkorm/schema/schema.go">
+    <entry file="file:///usr/local/go/src/reflect/value.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="79" column="20" selection-start-line="79" selection-start-column="20" selection-end-line="79" selection-end-column="20" />
+        <state relative-caret-position="168">
+          <caret line="1014" selection-start-line="1014" selection-end-line="1014" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/local/go/src/database/sql/sql.go">
+    <entry file="file:///usr/local/go/src/testing/testing.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="3149" column="16" selection-start-line="3149" selection-start-column="16" selection-end-line="3149" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/darkorm/session/raw.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="49" column="20" lean-forward="true" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
+        <state relative-caret-position="144">
+          <caret line="1114" selection-start-line="1114" selection-end-line="1114" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/darkorm/session/record.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="43" column="12" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="12" />
-          <folding>
-            <element signature="e#17#60#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="154">
+          <caret line="25" column="88" selection-start-line="25" selection-start-column="88" selection-end-line="25" selection-end-column="88" />
         </state>
       </provider>
     </entry>

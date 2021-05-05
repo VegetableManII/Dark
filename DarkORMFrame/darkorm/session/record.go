@@ -23,9 +23,8 @@ func (s *Session) Insert(values ...interface{}) (int64, error) {
 
 func (s *Session) Find(values interface{}) error {
 	destSlice := reflect.Indirect(reflect.ValueOf(values))
-	// 获取类型，作为Model参数构造出表结构
-	destType := destSlice.Type().Elem()
-	table := s.Model(reflect.New(destType).Elem().Interface()).RefTable()
+	destType := destSlice.Type().Elem() // 如果不使用Elem，返回值Type为指针Type类型，进行New构造时得到的是空指针nil
+	table := s.Model(reflect.New(destType).Interface()).RefTable()
 
 	s.clause.Set(clause.SELECT, table.Name, table.FieldNames)
 	sql, vars := s.clause.Build(clause.SELECT, clause.WHERE, clause.ORDERBY, clause.LIMIT)

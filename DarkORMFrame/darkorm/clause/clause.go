@@ -1,8 +1,6 @@
 package clause
 
 import (
-	"fmt"
-	"reflect"
 	"strings"
 )
 
@@ -49,7 +47,6 @@ func (c *Clause) Build(orders ...Type) (string, []interface{}) {
 			// reflect.ValueOf().Type().Len()
 			// reflect.ValueOf().Len()
 			// len()
-			fmt.Printf("%v\n", reflect.ValueOf(c.sqlVars[order]).Type())
 			vars = append(vars, c.sqlVars[order]...)
 		}
 	}
