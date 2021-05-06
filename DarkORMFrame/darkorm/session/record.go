@@ -32,6 +32,7 @@ func (s *Session) Find(values interface{}) error {
 	if err != nil {
 		return err
 	}
+	
 	// 遍历每一行记录
 	for rows.Next() {
 		dest := reflect.New(destType).Elem()

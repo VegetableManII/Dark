@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bca9fb77-4504-4253-9825-15002ac4360f" name="默认更改列表" comment="">
-      <change afterPath="$PROJECT_DIR$/../DarkCache/darkcache/lru/lru.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/darkorm/clause/clause.go" beforeDir="false" afterPath="$PROJECT_DIR$/darkorm/clause/clause.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkCache/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../DarkCache/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/darkorm/session/record.go" beforeDir="false" afterPath="$PROJECT_DIR$/darkorm/session/record.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DarkWebFrame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../DarkWebFrame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkRPCFrame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../DarkRPCFrame/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,8 +17,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/darkorm/session/record.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="25" column="88" selection-start-line="25" selection-start-column="88" selection-end-line="25" selection-end-column="88" />
+            <state relative-caret-position="370">
+              <caret line="34" column="4" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -74,7 +71,7 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="86" />
+    <option name="x" value="33" />
     <option name="y" value="23" />
     <option name="width" value="1567" />
     <option name="height" value="814" />
@@ -85,7 +82,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -124,6 +120,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -252,10 +249,10 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="86" y="23" width="1567" height="814" extended-state="0" />
+    <frame x="33" y="23" width="1567" height="814" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16131148" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16327868" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -537,8 +534,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/darkorm/session/record.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="25" column="88" selection-start-line="25" selection-start-column="88" selection-end-line="25" selection-end-column="88" />
+        <state relative-caret-position="370">
+          <caret line="34" column="4" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="4" />
         </state>
       </provider>
     </entry>
