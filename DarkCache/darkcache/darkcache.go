@@ -28,6 +28,7 @@ type Group struct {
 	mainCache cache  // 并发缓存
 }
 
+
 var (
 	mu sync.RWMutex
 	groups = make(map[string]*Group)
