@@ -32,6 +32,7 @@ func main() {
 	_ = json.NewEncoder(conn).Encode(darkrpc.DefaultOption)
 	cc := codec.NewGobCodec(conn)
 	// 发送请求并接受请求
+	
 	for i := 0; i < 5; i++ {
 		h := &codec.Header{
 			ServiceMethod: "Foo.Sum",
