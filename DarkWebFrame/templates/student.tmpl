@@ -1,10 +1,12 @@
-<!-- templates/arr.tmpl -->
 <html>
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="/assets/sayhello.css" />
+</head>
 <body>
-<link rel="stylesheet" href="/assets/sayhello.css" />
-<p>Hello, Welcome to Dark Frame</p>
+<p>Hello, Welcome to {{.title}}</p>
 {{range $index, $ele := .stuArr }}
-<p>{{ $index }}: {{ $ele.Name }} is {{ $ele.Age }} years old</p>
+<p>学号：{{ $index }} | 姓名：{{ $ele.Name }} | 年龄：{{ $ele.Age }}</p>
 {{ end }}
 </body>
 </html>

@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d65918b7-5173-41df-8075-326d9769744b" name="默认更改列表" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/darkcache/darkcache.go" beforeDir="false" afterPath="$PROJECT_DIR$/darkcache/darkcache.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../DarkRPCFrame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../DarkRPCFrame/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -112,8 +110,9 @@
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="y" value="23" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="94" />
+    <option name="y" value="42" />
     <option name="width" value="1600" />
     <option name="height" value="814" />
   </component>
@@ -280,7 +279,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1600" height="814" extended-state="0" />
+    <frame x="94" y="42" width="1600" height="814" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.25288832" />

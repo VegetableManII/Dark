@@ -2,6 +2,7 @@ package dark
 
 import (
 	"html/template"
+	"log"
 	"net/http"
 	"path"
 	"strings"
@@ -62,6 +63,7 @@ func (e *Engine) SetFuncMap(funcMap template.FuncMap) {
 
 // LoadHTMLGlob 加载模板
 func (e *Engine) LoadHTMLGlob(pattern string) {
+	// ParseGlob正则表达式读入文件
 	e.htmlTemplates = template.Must(template.New("").Funcs(e.funcMap).ParseGlob(pattern))
 }
 
@@ -117,6 +119,7 @@ func (g *RouterGroup) Use(middlewares ...HandleFunc) {
 // 创建处理静态请求的Handler
 func (g *RouterGroup) createStaticHandler(relativePath string, fs http.FileSystem) HandleFunc {
 	absolutePath := path.Join(g.prefix, relativePath)
+	log.Println(absolutePath)
 	fileServer := http.StripPrefix(absolutePath, http.FileServer(fs))
 	return func(c *Context) {
 		file := c.Param("file")

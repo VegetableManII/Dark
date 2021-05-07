@@ -108,9 +108,20 @@ func (r *router) handle(c *Context) {
 		// 从路由匹配到的Handler添加到中间件然后Next执行
 		c.handlers = append(c.handlers, r.handlers[key])
 	} else {
-		c.handlers = append(c.handlers, func(c *Context) {
-			c.String(http.StatusNotFound, "404 NOT FOUND %s\n", c.Path)
-		})
+		// 处理 index.html
+		c.Params = make(map[string]string, 1)
+		c.Params["file"] = "index.html"
+		if c.Path[len(c.Path)-1] != '/' {
+			c.Path += "/"
+		}
+		key := c.Method + "-" + c.Path + "*file"
+		if _, ok := r.handlers[key]; ok {
+			c.handlers = append(c.handlers, r.handlers[key])
+		} else {
+			c.handlers = append(c.handlers, func(c *Context) {
+				c.String(http.StatusNotFound, "404 NOT FOUND %s\n", c.Path)
+			})
+		}
 	}
 	c.Next()
 }
