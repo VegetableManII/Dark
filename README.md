@@ -266,5 +266,72 @@ len()
 
 ## DarkCache分布式缓存
 
+#### 功能
+
+LRU缓存淘汰策略
+
+单机并发缓存
+
+#### 功能组件和目录结构
+
+- **lru**：
+  - 主要成员
+    - 双向链表：`container/list`
+    - Hash表：`map`
+    - OnEvicted(函数指针成员)：当某条记录移除时触发回调函数
+  - 主要方法
+    - **Get**：通过key获取`*list.Element`，并将其移动到首部，通过类型断言将`*list.Element`转换为节点类型
+    - **RemoveOldest**：获取最后一个元素删除（双向链表和hash表中都要删除），更新使用内存大小，调用回调函数如果有的话
+    - **Add**：如果已存在则移动到首部，更新使用内存大小,更新hash表对应值；如果不存在，创建节点并插入到首部在hash表中添加并更新使用内存大小，如果内存超过最大限制则调用`RemoveOldest`，直到小于最大限制，最大限制设置为0表示不限制缓存的内存占用大小
+- **byteview**：只读数据结构，表示缓存的值，底层为byte数组，提供**ByteSlice**返回缓存数据的拷贝
+- **cache**：通过互斥锁实现单机并发访问，对lru进行了加一层锁的封装，`add`和`get`方法对数据的表述均为`byteview`格式
+- **Group**：负责与用户交互以及控制缓存值的存储和获取的流程
+  - 主要成员：
+    - `name`区分不同缓存空间，即缓存命名空间
+    - `Getter`回调的注册可以是函数类型也可以结构体类型，当缓存未命中时回调
+    - `cache`缓存
+  - 主要方法：
+    - **Get**：返回类型为`ByteView`，封装`cache`的`get`方法，如果没有缓存则回调加载源数据
+    - **getLocally**：
+- **Getter**接口：回调函数，当缓存不存在时调用用户提供的回调函数去获取数据或做其他处理。持有`Get`方法
+  - `Get(key string) ([]byte, error)`方法被定义为`GetterFunc`类型
+  - `GetterFunc`实现了`Get`方法，这种函数成为接口函数，在调用时既可以传入结构体也可以传入这种类型的函数作为参数
+
 ## DarkRPC框架
 
+#### 功能
+
+- 消息编解码（序列化与反序列化）
+
+#### 功能组件和目录结构
+
+（客户端发送的请求包括服务名，方法名和参数，服务端的响应包括错误`error`，返回值`replay`）
+
+- **codec**：
+
+  - 定义`Header`，请求和响应中的参数和返回值抽象为`body`，剩余的信息组成`header`（请求服务名方法名，序号，错误）
+
+  - **Codec**接口：
+
+    - 接口方法
+
+      ```go
+      	io.Closer
+      	ReadHeader(*Header) error
+      	ReadBody(interface{}) error
+      	Write(*Header, interface{}) error
+      ```
+
+    - 实现不同的`Codec`实例，根据不同的类型返回不同的构造函数（提供`Gob`编码和`Json`编码两种）
+
+    - **GobCodec**：持有`gob`的编解码工具以及一个`bufio.Writer`（通过**socket**链接来创建缓冲输出），实现`Codec`接口
+
+- **server**：默认消息编码格式为`Gob`编码，协商时使用`json`编码`option`，后续交流通过`option`中制定的编码格式。持有默认**server**实例使用默认**option**。`Accept`接收连接后`ServeConn`处理
+
+  - **Option**：用于协商消息的编码格式
+  - **ServeConn**
+    - 创建`json.NewDecoder`解码后获得`option`，根据其**CodecType**类型选择对应的**Codec**类型
+  - **serveCodec**
+    - 读取请求**readRequest**
+    - 处理请求**handleRequest**：并发处理请求使用`sync.Mutex`和`sync.WaitGroup`控制
+    - 回复请求**sendResponse**：回复请求需要挨个发送使用`sync.Mutex`来保证

@@ -2,9 +2,7 @@ package darkcache
 /*
 缓存值的抽象与封装
 */
-
-
-// 保存字节流的不可变视图
+// 缓存对象的视图
 type ByteView struct {
 	b []byte
 }
