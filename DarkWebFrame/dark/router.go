@@ -108,9 +108,9 @@ func (r *router) handle(c *Context) {
 		// 从路由匹配到的Handler添加到中间件然后Next执行
 		c.handlers = append(c.handlers, r.handlers[key])
 	} else {
-		// 处理 index.html
+		// 处理 index.tmpl
 		c.Params = make(map[string]string, 1)
-		c.Params["file"] = "index.html"
+		c.Params["file"] = "index.tmpl"
 		if c.Path[len(c.Path)-1] != '/' {
 			c.Path += "/"
 		}

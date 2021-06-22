@@ -20,6 +20,9 @@ const (
 	LIMIT
 	WHERE
 	ORDERBY
+	UPDATE
+	DELETE
+	COUNT
 )
 
 // Set 根据Type类型构造该子句的sql语句

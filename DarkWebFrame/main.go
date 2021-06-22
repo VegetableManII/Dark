@@ -12,7 +12,7 @@ import (
 // 基础实现context
 func easy(r *dark.Engine) {
 	r.Get("/easy", func(context *dark.Context) {
-		// 请求格式 /hello？name=xxx
+		// 请求格式 /easy?name=xxx
 		context.String(http.StatusOK, "hello %s\nPath %s\n", context.Query("name"), context.Path)
 	})
 	r.POST("/easy", func(c *dark.Context) {
@@ -26,12 +26,12 @@ func easy(r *dark.Engine) {
 // 增加前缀路由及路由参数
 func addRouteWithParam(r *dark.Engine) {
 	r.Get("/route1/:name", func(context *dark.Context) {
-		// 请求格式 /hello/jack
+		// 请求格式 /route1/jack
 		log.Println(context.Query("name"))
 		context.String(http.StatusOK, "Hello %s & Path is %s\n", context.Param("name"), context.Path)
 	})
 	r.Get("/route2/*file", func(context *dark.Context) {
-		// 请求格式 /assets/index.html
+		// 请求格式 /route2/index.tmpl
 		context.JSON(http.StatusOK, dark.H{"file": context.Params["file"]})
 	})
 }
@@ -131,25 +131,28 @@ func addStaticFilePath(r *dark.Engine) {
 func main() {
 	r := dark.New()
 
-	//r.Use(dark.Logger())
-	//r.LoadHTMLGlob("/Users/jack/Documents/其他/作业/web/实验四/*.tmpl")
-	//r.Static("/questionnaire","/Users/jack/Documents/其他/作业/web/实验四/")
-	//r.POST("questionnaire/result", func(c *dark.Context) {
-	//	c.HTML(http.StatusOK,"result.tmpl",dark.H{
-	//		"Q1":c.PostForm("q1"),
-	//		"Q2":c.PostForm("q2"),
-	//		"Q3":c.PostForm("q3"),
-	//		"Q4":c.PostForm("q4"),
-	//		"Q5":c.PostForm("q5"),
-	//	})
-	//})
+	r.Use(dark.Logger())
+	r.LoadHTMLGlob("/Users/jack/Documents/作业/web/实验四/*.tmpl")
+	r.Static("/questionnaire","/Users/jack/Documents/作业/web/实验四/")
+	r.POST("questionnaire/result", func(c *dark.Context) {
+		c.HTML(http.StatusOK,"result.tmpl",dark.H{
+			"Q1":c.PostForm("q1"),
+			"Q2":c.PostForm("q2"),
+			"Q3":c.PostForm("q3"),
+			"Q4":c.PostForm("q4"),
+			"Q5":c.PostForm("q5"),
+		})
+	})
+	r.Get("/", func(c *dark.Context) {
+		c.HTML(http.StatusOK,"index.tmpl",nil)
+	})
 
-	easy(r)
-	addRouteWithParam(r)
-	g := addRouterGroup(r)
-	addMiddleware(r, g[1])
-	addStaticFilePath(r)
-	addTemplate(r)
+	//easy(r)
+	//addRouteWithParam(r)
+	//g := addRouterGroup(r)
+	//addMiddleware(r, g[1])
+	//addStaticFilePath(r)
+	//addTemplate(r)
 
 	r.Run(":9999")
 }

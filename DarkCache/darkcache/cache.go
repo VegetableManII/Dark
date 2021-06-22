@@ -3,7 +3,7 @@ package darkcache
 并发控制
 */
 import (
-	"DarkCache/darkcache/lru"
+	"darkcache/lru"
 	"sync"
 )
 

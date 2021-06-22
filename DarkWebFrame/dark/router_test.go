@@ -28,14 +28,14 @@ func TestParsePattern(t *testing.T) {
 }
 func TestGetRoute(t *testing.T) {
 	r := newTestRouter()
-	n, ps := r.getRoute("GET", "/assets/index.html")
+	n, ps := r.getRoute("GET", "/assets/index.tmpl")
 	if n == nil {
 		t.Fatal("nil returned")
 	}
 	if n.pattern != "/assets/*file" {
 		t.Fatalf("n.pattern is %s", n.pattern)
 	}
-	if ps["file"] != "index.html" {
+	if ps["file"] != "index.tmpl" {
 		t.Fatalf("ps['file'] is %s", ps["file"])
 	}
 	fmt.Printf("matched path %s, params['file']: %s\n", n.pattern, ps["file"])

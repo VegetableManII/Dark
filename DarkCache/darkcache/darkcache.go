@@ -1,6 +1,8 @@
 package darkcache
 
 import (
+	pb "darkcache/darkcachepb"
+	"darkcache/singleflight"
 	"fmt"
 	"log"
 	"sync"
@@ -26,6 +28,8 @@ type Group struct {
 	name string
 	getter Getter // 缓存未命中时获取源数据的回调
 	mainCache cache  // 并发缓存
+	peers PeerPicker
+	loader *singleflight.Group
 }
 
 
@@ -44,10 +48,12 @@ func NewGroup(name string,cacheBytes int64,getter Getter) *Group {
 		name:name,
 		getter:getter,
 		mainCache:cache{cacheBytes:cacheBytes},
+		loader:&singleflight.Group{},
 	}
 	groups[name] = g
 	return g
 }
+
 // GetGroup 根据名字获得之前创建的Group如果没有返回nil
 func GetGroup(name string) *Group {
 	mu.RLock()
@@ -59,10 +65,12 @@ func GetGroup(name string) *Group {
 /*
  接收key ——> 检查是否被缓存 ————> 返回缓存值
                  | 否
-                 |——————> 是否从远程节点获取
-                                | 否
-                                | ————————> 调用回调函数，并取值添加到缓存 ——————> 返回缓存值
-
+                 |——————> 是否从远程节点获取 ————————> 使用一致性哈希选择节点
+                                | 否                   是否是远程节点 ———————————> HTTP客户端访问 ——————> 成功？——————> 服务端返回数据
+                                |                           | 否                                       | 否
+								|                           | ———————————————————————————————> 回退到本地节点处理
+								|
+								| ————————> 调用回调函数，并取值添加到缓存 ——————> 返回缓存值
 */
 func (g *Group) Get(key string) (ByteView,error) {
 	if key == "" {
@@ -76,7 +84,24 @@ func (g *Group) Get(key string) (ByteView,error) {
 }
 
 func (g *Group) load(key string) (value ByteView,err error) {
-	return g.getLocally(key)
+	/*
+		有当前请求数量决定，每一个key只被获取一次，可以从本地或远程获取
+	*/
+	viewi,err := g.loader.Do(key, func() (i interface{}, e error) {
+		if g.peers != nil {
+			if peer,ok := g.peers.PickPeer(key);ok {
+				if value,err = g.getFromPeer(peer,key);err == nil {
+					return value,nil
+				}
+				log.Println("[DarkCache] Failed to get from peer",err)
+			}
+		}
+		return g.getLocally(key)
+	})
+	if err == nil {
+		return viewi.(ByteView),nil
+	}
+	return
 }
 
 func (g *Group) getLocally(key string) (ByteView,error) {
@@ -88,6 +113,25 @@ func (g *Group) getLocally(key string) (ByteView,error) {
 	g.populateCache(key,value)
 	return value,nil
 }
+func (g *Group) getFromPeer(peer PeerGetter,key string) (ByteView,error) {
+	req := &pb.Request{
+		Group: g.name,
+		Key: key,
+	}
+	res := &pb.Response{}
+	err := peer.Get(req,res)
+	if err != nil {
+		return ByteView{},err
+	}
+	return ByteView{b:res.Value},nil
+}
+
 func (g *Group) populateCache(key string,value ByteView) {
 	g.mainCache.add(key,value)
+}
+func (g *Group) RegisterPeers(peers PeerPicker) {
+	if g.peers != nil {
+		panic("RegisterPeerPicker called more than once")
+	}
+	g.peers = peers
 }
