@@ -103,7 +103,7 @@ func (g *Group) load(key string) (value ByteView,err error) {
 	}
 	return
 }
-
+// 从本地获取
 func (g *Group) getLocally(key string) (ByteView,error) {
 	bytes,err := g.getter.Get(key)
 	if err != nil {

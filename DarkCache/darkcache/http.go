@@ -18,12 +18,12 @@ import (
 */
 
 const  (
-	defaultBasePath  = "/_darkcache/"
+	defaultBasePath  = "/_darkcache/"   // 节点间通信的地址前缀
 	defaultReplicas = 50
 	)
 
 type HTTPPool struct {
-	// 本地节点的URL地址，例如 http://darkcache:8000
+	// 本地节点的URL地址，例如 http://localhost:8000
 	self string
 	basePath string
 	mu sync.Mutex
@@ -47,7 +47,7 @@ func (p *HTTPPool) ServeHTTP(w http.ResponseWriter,r *http.Request) {
 	if !strings.HasPrefix(r.URL.Path,p.basePath) {
 		panic("HTTPPool serving unexpected path: "+ r.URL.Path)
 	}
-	p.Log("%s %s",r.Method,r.URL.Path)
+	p.Log("%s %s\n",r.Method,r.URL.Path)
 	// <basepath>/<groupname>|<key> 字符串截取获的groupname和key
 	parts := strings.SplitN(r.URL.Path[len(p.basePath):],"/",2)
 	if len(parts) != 2 {
